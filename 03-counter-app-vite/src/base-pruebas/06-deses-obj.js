@@ -7,11 +7,7 @@ const persona = {
     clave: 'Ironman'
 };
 
-// const { edad, clave, nombre, } = persona;
- 
-// console.log( nombre );
-// console.log( edad );
-// console.log( clave );
+
 
 const usContext = ({ clave, nombre, edad, rango = 'Capitán' }) => {
 
