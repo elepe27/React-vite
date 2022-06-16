@@ -8,7 +8,7 @@ export const FirstApp = ( {title, subtitle, edad , name} : props ) => {
 
     return (
         <>
-            <h1> { title } </h1>
+            <h1 data-testid='test-title'>{ title }</h1>
             {/* <code> { JSON.stringify( nombre, 0, null, 4 ) } </code> */}
             <h2>{ subtitle }</h2>
             <h2>{ edad }</h2>

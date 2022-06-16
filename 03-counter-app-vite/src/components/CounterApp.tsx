@@ -18,12 +18,13 @@ export const CounterApp = ({value} :props) => {
             <h2>{ counter }</h2>
             <hr/>
             <button 
-                onClick={ handleAdd } > + 1</button>
+                onClick={ handleAdd } > +1</button>
 
             <button 
-                onClick={ handleReset } > Reset</button>
+                aria-label="btn-reset"
+                onClick={ handleReset } >Reset</button>
             <button 
-                onClick={ hanldeSubstract } > - 1</button>
+                onClick={ hanldeSubstract } > -1</button>
         </>
     )
 }
