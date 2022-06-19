@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react';
 
 import { useFetchGifs } from '../hooks/useFetchGifs';
 import { GifGridItem } from './GifGridItem';
