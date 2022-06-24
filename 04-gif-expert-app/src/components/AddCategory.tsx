@@ -9,6 +9,7 @@ export const AddCategory:React.FC<IMyProps> = ( { onNewCategory }:IMyProps ) => 
     const onInputChange = ({ target: { value } }: any) => setInputValue(value);
 
     const onSubmit = ( e :any )=>{
+        
         e.preventDefault();
 
         if (inputValue.trim().length <= 1) return;
@@ -19,7 +20,7 @@ export const AddCategory:React.FC<IMyProps> = ( { onNewCategory }:IMyProps ) => 
     }
 
     return (
-        <form onSubmit={ onSubmit }>
+        <form onSubmit={ onSubmit } aria-label='form'>
             <input
                 type='text'
                 placeholder='Buscar gifs'

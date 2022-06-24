@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client'
 
 
 
-import 'bulma/css/bulma.min.css'
+import 'bulma/css/bulma.min.css';
+import './styles.scss'
 import { CountryApp } from './CountryApp'
+
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

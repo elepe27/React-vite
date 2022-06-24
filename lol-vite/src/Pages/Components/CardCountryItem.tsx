@@ -1,11 +1,9 @@
 import React from 'react'
 import { ICountryName } from '../Interfaces/ICountryName'
 
-export const CardCountryItem = ({ data , onDeleteCountry}:any) => {
+export const CardCountryItem = ({ data , onDeleteCountry, value}:any) => {
 
     const country: ICountryName = data;
-
-
 
     return (
 
@@ -39,7 +37,7 @@ export const CardCountryItem = ({ data , onDeleteCountry}:any) => {
                     <div className="card-footer">
                         <button 
                             className="button is-danger"
-                            onClick={()=> onDeleteCountry(country.name.common)}
+                            onClick={()=> onDeleteCountry(value)}
                             >
                             Eliminar
                         </button>
