@@ -4,7 +4,7 @@ import { useCounter } from '../hooks/useCounter';
 export const CounterWithCustomHook = () => {
 
 
-    const { counter, onAddCounter, onDecrement, onReset } = useCounter();
+    const { counter, onAddCounter, onDecrement, onReset } = useCounter(16);
    
 
     return (
