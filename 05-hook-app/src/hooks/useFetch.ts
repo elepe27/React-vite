@@ -11,10 +11,10 @@ export const useFetch = (url: string) => {
 
     const getFetch = async () => {
 
-        // setState({
-        //     ...state,
-        //     isLoading: true
-        // });
+        setState({
+            ...state,
+            isLoading: true
+        });
 
         const resp: any = await fetch(url)
         const data: any = await resp.json();

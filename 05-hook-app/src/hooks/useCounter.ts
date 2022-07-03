@@ -7,7 +7,7 @@ export const useCounter = ( initialValue = 10) => {
 
     const onAddCounter = ( value = 1)=> setCounter( counter + value);
     const onDecrement = ( value = 1) => {
-        if(counter === 0 ) return;
+        if(counter === 1 ) return;
         setCounter ( counter - value)
     };
     const onReset = ( ) => setCounter (initialValue);
