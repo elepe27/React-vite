@@ -1,11 +1,41 @@
-export const Quote:React.FC<props> = ( {quote, author}) => {
+import { useLayoutEffect, useRef, useState } from 'react';
+
+export const Quote: React.FC<props> = ({ quote, author }) => {
+
+    const [boxSize, setBoxSize] = useState({
+        width: 0,
+        height: 0
+    })
+
+    const pRef: any = useRef();
+
+    useLayoutEffect(() => {
+
+        const { height, width }: any = pRef.current.getBoundingClientRect();
+        
+        setBoxSize({
+            ...boxSize,
+            height,
+            width
+        })
+    }, [quote])
+
+
+
     return (
-        <blockquote className='blockquote text-end'>
+        <>
+            <blockquote
+                className='blockquote text-end'
+                style={{ display: 'flex' }}>
 
-            <p className='mb-2'>{ quote }</p>
-            <footer className='blockquote-footer'> { author } </footer>
+                <p ref={pRef}
+                    className='mb-2'>{quote}</p>
+                <footer className='blockquote-footer'> {author} </footer>
 
-        </blockquote>
+            </blockquote>
+
+            <code>{JSON.stringify(boxSize)} </code>
+        </>
     )
 }
 
