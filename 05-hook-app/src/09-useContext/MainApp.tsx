@@ -3,7 +3,11 @@ import { HomePage , AboutPage , LoginPage, Navbar} from './';
 import { UserProvider } from "./context/UserProvider";
 
 export const MainApp = () => {
-    return (<UserProvider>
+
+
+    
+    return (
+    <UserProvider>
 
        <Navbar/>
 

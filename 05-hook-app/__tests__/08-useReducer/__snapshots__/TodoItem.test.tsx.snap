@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <TodoItem/> se debe renderizar todoitem 1`] = `
+<div>
+  <li
+    class="list-group-item d-flex justify-content-between"
+  >
+    <span
+      aria-label="span"
+      class="align-self-center "
+    >
+      TODO NUEVO
+    </span>
+    <button
+      class="btn btn-sm btn-danger"
+    >
+       Borrar 
+    </button>
+  </li>
+</div>
+`;

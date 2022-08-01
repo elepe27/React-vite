@@ -1,14 +1,22 @@
 import { useState } from 'react';
 
 
-export const useCounter = ( initialValue = 10) => {
+type prop = {
+    counter: number,
+    onAddCounter: Function,
+    onDecrement: Function,
+    onReset: Function,
+
+}
+
+export const useCounter = ( initialValue = 10) :any =>  { 
 
     const [counter, setCounter] = useState( initialValue );
 
-    const onAddCounter = ( value = 1)=> setCounter( counter + value);
+    const onAddCounter = ( value = 1)=> setCounter( current => current + value);
     const onDecrement = ( value = 1) => {
         if(counter === 1 ) return;
-        setCounter ( counter - value)
+        setCounter ( c => c - value)
     };
     const onReset = ( ) => setCounter (initialValue);
 
