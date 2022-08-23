@@ -3,13 +3,18 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { JournalApp } from './JournalApp';
 
+import { store } from './store'
+import { Provider } from 'react-redux'
+
 import './styles.css';
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <JournalApp />
-    </BrowserRouter>
+    <Provider store={ store }>
+      <BrowserRouter>
+        <JournalApp />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 )
