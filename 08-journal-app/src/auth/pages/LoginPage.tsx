@@ -1,13 +1,13 @@
 import { Link as RouterLink } from 'react-router-dom';
-import { Google } from "@mui/icons-material";
-import { Button, Grid, Link, TextField, Typography } from "@mui/material";
+import { Facebook, Google } from "@mui/icons-material";
+import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 import { RootState } from '../../store/store';
 
 
 import { useDispatch, useSelector } from 'react-redux';
-import { chekingAuthentication, startGoogleSignIn } from '../../store/auth/';
+import { startGoogleSignIn, startLoginWithEmailPassowrd, startLoginWithFacebook } from '../../store/auth/';
 import { useMemo } from 'react';
 
 interface SyntheticEvent<T> {
@@ -17,20 +17,19 @@ interface SyntheticEvent<T> {
 }
 
 
-
 export const LoginPage = () => {
 
- 
-  const { status } = useSelector( (state:RootState)=> state.auth)
-
-
+  const { status } = useSelector( (state:RootState)=> state.auth);
 
   const dispatch:any = useDispatch()
 
-  const { email, password, onInputChange, formState }: any = useForm({
-    email: 'esteban.lepe1c@gmail.com',
-    password: '13_enero'
+  const { email, password, onInputChange, formState,
+          isFormValid, emailValid, passwordValid }: any = useForm({
+    email: '',
+    password: ''
   });
+
+  const { displayName, errorMessage  } = useSelector((state:RootState) => state.auth);
 
   const isAuthenticating = useMemo( ()=> status === 'checking', [status] );
 
@@ -38,7 +37,7 @@ export const LoginPage = () => {
   const onSubmit = (event: any): any => {
     event.preventDefault();
 
-    dispatch( chekingAuthentication() );
+    dispatch( startLoginWithEmailPassowrd( formState ) );
    
   }
 
@@ -47,11 +46,16 @@ export const LoginPage = () => {
     dispatch( startGoogleSignIn() );
   }
 
+  const onFacebookLogin = ()=> {
+    
+    dispatch( startLoginWithFacebook());
+  }
+
   return (
 
     <AuthLayout title='Login'>
 
-      <form onSubmit={onSubmit} >
+      <form onSubmit={onSubmit} className='animate__animated animate__fadeIn animate__faster'>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
@@ -59,8 +63,8 @@ export const LoginPage = () => {
               type="email"
               placeholder="correo@google.com"
               name='email'
-              onChange={onInputChange}
-              value={email}
+              onChange={ onInputChange }
+              value={ email }
               fullWidth />
           </Grid>
 
@@ -76,7 +80,7 @@ export const LoginPage = () => {
           </Grid>
 
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
-            <Grid item xs={12} sm={6} >
+            <Grid item xs={12} sm={4} >
               <Button
                type='submit' 
                variant="contained" 
@@ -85,7 +89,7 @@ export const LoginPage = () => {
                 Login
               </Button>
             </Grid>
-            <Grid item xs={12} sm={6} >
+            <Grid item xs={12} sm={4} >
               <Button
                 onClick={ onGoogleSignIn }
                 variant="contained"
@@ -95,8 +99,29 @@ export const LoginPage = () => {
                 <Typography sx={{ ml: 1 }}>Google</Typography>
               </Button>
             </Grid>
+            <Grid item xs={12} sm={4} >
+              <Button
+                onClick={ onFacebookLogin }
+                variant="contained"
+                fullWidth
+                disabled = { isAuthenticating }>
+                <Facebook />
+                <Typography sx={{ ml: 1 }}>FACEBOOK</Typography>
+              </Button>
+            </Grid>
 
           </Grid>
+
+          {
+            (errorMessage) &&
+            <Alert severity='error'>
+                {errorMessage}
+          </Alert>
+          
+
+          }
+
+          
 
           <Grid container direction='row' justifyContent='end'>
             <Link component={RouterLink} color='inherit' to='/auth/register'>

@@ -10,7 +10,7 @@ export const JournalLayout = ({ children, title = '' }: any) => {
     document.title = title;
 
     return (
-        <Box sx={{ display: 'flex' }} >
+        <Box sx={{ display: 'flex' }} className='animate__animated animate__fadeIn animate__faster'>
 
             <NavBar drawerWidth={ drawerWidth } />
 

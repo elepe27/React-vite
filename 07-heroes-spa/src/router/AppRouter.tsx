@@ -4,10 +4,16 @@ import { HeroesRoutes } from "../heroes";
 import { LoginPage } from "../auth";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
+import { RootState } from '../../../08-journal-app/src/store/store';
 
 
 export const AppRouter = () => {
     
+
+    
+
+
+
     return (
         <>
 
