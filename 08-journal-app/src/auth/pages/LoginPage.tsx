@@ -16,6 +16,11 @@ interface SyntheticEvent<T> {
 
 }
 
+const formData = {
+  email: '',
+  password: ''
+};
+
 
 export const LoginPage = () => {
 
@@ -24,10 +29,7 @@ export const LoginPage = () => {
   const dispatch:any = useDispatch()
 
   const { email, password, onInputChange, formState,
-          isFormValid, emailValid, passwordValid }: any = useForm({
-    email: '',
-    password: ''
-  });
+          isFormValid, emailValid, passwordValid }: any = useForm( formData );
 
   const { displayName, errorMessage  } = useSelector((state:RootState) => state.auth);
 

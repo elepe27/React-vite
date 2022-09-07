@@ -10,9 +10,6 @@ import { RootState } from '../../../08-journal-app/src/store/store';
 export const AppRouter = () => {
     
 
-    
-
-
 
     return (
         <>

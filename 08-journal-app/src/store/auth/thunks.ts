@@ -1,11 +1,13 @@
 
 import { loginWithEmailPassword, logOutFirebase, registerWithUserEmailPassword, sigInWhitGoogle, sigInWithFacebook } from "../../firebase/providers";
+import { clearNotesLogout } from "../journal";
 import { chekingCredentials, logout, login } from "./"
+import { AppDispatch } from '../store';
 
 
 export const chekingAuthentication = ( email:string = '', password :string= '' )=> {
 
-    return async ( dispatch:any )=> {
+    return async ( dispatch:AppDispatch )=> {
 
         dispatch( chekingCredentials() );
     }
@@ -14,7 +16,7 @@ export const chekingAuthentication = ( email:string = '', password :string= '' )
 
 export const startGoogleSignIn = ()=> {
 
-    return async ( dispatch:any )=> {
+    return async ( dispatch:AppDispatch )=> {
 
         dispatch( chekingCredentials() );
 
@@ -31,7 +33,7 @@ export const startGoogleSignIn = ()=> {
 
 export const startCreatingUserWithEmailAndPassword = ({ email, password, displayName}:any)=> {
 
-    return async ( dispatch:any )=>{
+    return async ( dispatch:AppDispatch )=>{
 
         dispatch( chekingCredentials() );
 
@@ -47,7 +49,7 @@ export const startCreatingUserWithEmailAndPassword = ({ email, password, display
 
 export const startLoginWithEmailPassowrd = ({ email, password }:any) =>{
 
-    return async ( dispatch:any ) => {
+    return async ( dispatch:AppDispatch ) => {
 
         dispatch( chekingCredentials() );
 
@@ -62,9 +64,9 @@ export const startLoginWithEmailPassowrd = ({ email, password }:any) =>{
 
 export const startLogout = ()=> {
 
-    return async ( dispatch:any ) => {
+    return async ( dispatch:AppDispatch ) => {
         await logOutFirebase();
-
+        dispatch( clearNotesLogout() );
         dispatch( logout({}) );
         
     }
@@ -73,7 +75,7 @@ export const startLogout = ()=> {
 export const startLoginWithFacebook = ()=> {
 
 
-    return async ( dispatch:any)=> {
+    return async ( dispatch:AppDispatch)=> {
 
         dispatch( chekingCredentials() );
 
