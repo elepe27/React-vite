@@ -1,14 +1,22 @@
-import { Button, Grid, TextField, Typography } from "@mui/material"
+import { Button, Grid, Link, TextField, Typography } from "@mui/material"
 import { Google } from "@mui/icons-material";
 import { AuthLayout } from "../layout/AuthLayout"
+import { Link as RouterLink } from 'react-router-dom';
 
 
 export const LoginPage = () => {
+
+
+    const onSubmit = (event: any) => {
+        event.preventDefault();
+    }
+
     return (
 
         <AuthLayout title='Login'>
 
             <form
+                onSubmit={onSubmit}
                 className="animate__animated animate__fadeIn animate__faster">
 
                 <Grid container>
@@ -45,6 +53,7 @@ export const LoginPage = () => {
                             type='submit'
                             variant='contained'
                             fullWidth
+                            sx={{ color: 'white' }}
                         >
                             Iniciar
                         </Button>
@@ -55,10 +64,24 @@ export const LoginPage = () => {
                             type='submit'
                             variant='contained'
                             fullWidth
+                            sx={{ color: 'white' }}
                         >
                             <Google />
                             <Typography sx={{ ml: 1 }} > Google</Typography>
                         </Button>
+                    </Grid>
+                </Grid>
+
+                <Grid container
+                    spacing={0}
+                    sx={{ mb: 2, mt: 2 }}
+                    direction='column'
+                    alignContent='end'
+                    justifyContent='end'>
+                    <Grid item xs={12} sm={6}>
+                        <Link component={RouterLink} color='inherit' to='/info'>
+                            Contratar iTurnos
+                        </Link>
                     </Grid>
                 </Grid>
             </form>
