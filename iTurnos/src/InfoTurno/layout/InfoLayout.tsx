@@ -4,7 +4,7 @@ import { Navbar } from "../components";
 const drawerWidth = 0;
 
 export const InfoLayout = ({ children, title }: any) => {
-    document.title = title;
+    document.title = `iTurnos - ${title}`;
     return (
         <Box sx={{ display: 'flex' }} className='animate__animated animate__fadeIn animate__faster'>
 

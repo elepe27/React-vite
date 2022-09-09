@@ -1,3 +1,15 @@
 .box-shadow {
     box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
 }
+
+.sinline {
+    text-decoration: none !important;
+
+}
+.active {
+    background-color: cadetblue;
+    border-radius: 2px;
+    padding: 5px;
+    color: white !important;
+
+}
