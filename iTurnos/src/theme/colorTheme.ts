@@ -8,11 +8,11 @@ export const colorTheme = createTheme({
 
     palette: {
         primary:{
-            main:'#B9CEF0',
-            dark:'#B9C000'
+            main:'#0151A5',
+            dark:'#032656'
         },
         secondary:{
-            main:'#5088DD'
+            main:'#007CFF'
         },
         error:{
             main:red.A400

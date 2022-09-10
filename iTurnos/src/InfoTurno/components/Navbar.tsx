@@ -58,12 +58,6 @@ export const Navbar = ({ drawerWidth }: any) => {
 
                     </Grid>
 
-                    
-
-
-
-
-
                 </Grid>
 
 

@@ -1,7 +1,10 @@
 import React from 'react'
+import { TurnosLayout } from '../layout/TurnosLayout';
 
 export const IndexPage = () => {
   return (
-    <h1>Primera pagina</h1>
+    <TurnosLayout>
+      Test
+    </TurnosLayout>
   )
 }

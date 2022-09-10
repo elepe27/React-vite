@@ -1,14 +1,16 @@
 import { Button, Grid, Link, TextField, Typography } from "@mui/material"
 import { Google } from "@mui/icons-material";
 import { AuthLayout } from "../layout/AuthLayout"
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, Navigate, useNavigate } from 'react-router-dom';
 
 
 export const LoginPage = () => {
 
 
+    let navigate = useNavigate();
     const onSubmit = (event: any) => {
         event.preventDefault();
+        navigate('/turnos');
     }
 
     return (
