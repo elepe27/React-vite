@@ -5,6 +5,7 @@ import { addHours } from 'date-fns/esm';
 
 import { Navbar } from "../components/Navbar"
 import { getMessagesEs, localizer } from '../../helpers';
+import { CalendarEvent } from '../components/CalendarEvent';
 
 const events = [{
   title: 'Cumpleaños del jefe',
@@ -33,6 +34,24 @@ export const CalendarPage = () => {
       style
     }
   }
+
+  const onDoubleClick = ( event:any ) => {
+
+    console.log({doubleClick: event});
+
+  }
+  const onSelect = ( event:any ) => {
+
+    console.log({click: event});
+
+  }
+  const onViewChanged = ( event:any ) => {
+
+    console.log({viewChanged: event});
+
+  }
+
+  
   return (
     <>
       <Navbar />
@@ -46,6 +65,12 @@ export const CalendarPage = () => {
         style={{ height: 'calc( 100vh - 80px )' }}
         messages={getMessagesEs()}
         eventPropGetter={ eventStyleGetter }
+        components={{
+          event: CalendarEvent
+        }}
+        onDoubleClickEvent={ onDoubleClick }
+        onSelectEvent={ onSelect }
+        onView={ onViewChanged }
       />
 
 
